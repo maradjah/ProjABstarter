@@ -9,6 +9,10 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value = "GSM")
 public class AbonnementGSM extends Abonnement {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int fidelio;
 
 	public AbonnementGSM(Date dateAbonnement, double solde, boolean actif, int fidelio) {

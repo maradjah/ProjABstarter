@@ -18,5 +18,14 @@
 			<result name="success">views/Abonnement.jsp</result>
 		</action>
 
+		<action name="update" class="org.sid.web.AbonnementAction"
+			method="update">
+			<result name="success">views/Abonnement.jsp</result>
+		</action>
+		
+		<action name="delete" class="org.sid.web.AbonnementAction"
+			method="delete">
+			<result name="success">views/Abonnement.jsp</result>
+		</action>
 	</package>
 </struts>

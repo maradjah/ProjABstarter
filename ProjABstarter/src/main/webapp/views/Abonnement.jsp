@@ -40,6 +40,13 @@ body {
 	margin-left: 20%;
 	margin-top: 20px;
 }
+
+.center2 {
+	position: fixed;
+	left: 50px;
+	right: 0;
+	margin-right: 10%;
+}
 </style>
 </head>
 <body>
@@ -76,17 +83,12 @@ body {
 							<s:radio id="radio" list="typesAb" label="type Abonnement"
 								name="typeRadio" onchange="checkifempty(this.value)" />
 
-							<s:textfield id="fid" 
-									     label="Fidelio" 
-									     name="fidelio"
-										 disabled="true" 
-										 elementCssClass="col-sm-3" />
+							<s:textfield id="fid" label="Fidelio" name="fidelio"
+								disabled="true" elementCssClass="col-sm-3" />
 
-							<s:textfield id="deb" 
-							             label="Débit" 
-							             name="debit" 
-							             disabled="true"
-										 elementCssClass="col-sm-3" />
+							<s:textfield id="deb" label="Débit" name="debit" disabled="true"
+								elementCssClass="col-sm-3" />
+							<s:hidden name="editMode"></s:hidden>
 
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-md-9">
@@ -97,49 +99,64 @@ body {
 					</s:form>
 				</div>
 			</div>
-			<div class="col-md-7 ">
-				<div class="well">
-					<table id="myTable" class="table table-striped table-bordered">
-						<thead>
+		</div>
+		<div class="center2">
+			<div class="">
+				<table id="myTable" class="table-striped table-bordered table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Date Abonnement</th>
+							<th>Solde</th>
+							<th>Type</th>
+							<th>Etat</th>
+							<th>Débit</th>
+							<th>Fidelio</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>ID</th>
+							<th>Date Abonnement</th>
+							<th>Solde</th>
+							<th>Type</th>
+							<th>Etat</th>
+							<th>Débit</th>
+							<th>Fidelio</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<s:iterator value="abonnements">
 							<tr>
-								<th>ID</th>
-								<th>Date Abonnement</th>
-								<th>Solde</th>
-								<th>Type</th>
-								<th>Etat</th>
-								<th>Débit</th>
-								<th>Fidelio</th>
-							</tr>
-						</thead>
-						<tfoot>
-							<tr>
-								<th>ID</th>
-								<th>Date Abonnement</th>
-								<th>Solde</th>
-								<th>Type</th>
-								<th>Etat</th>
-								<th>Débit</th>
-								<th>Fidelio</th>
-							</tr>
-						</tfoot>
-						<tbody>
-							<s:iterator value="abonnements">
-								<tr>
-									<td><s:property value="idAbonnement" /></td>
-									<td><s:property value="dateAbonnement" /></td>
-									<td><s:property value="solde" /></td>
-									<td><s:property value="class.simpleName" /></td>
-									<td><s:property value="actif" /></td>
-									<td><s:property value="debit" /></td>
-									<td><s:property value="fidelio" /></td>
-								</tr>
-							</s:iterator>
-						</tbody>
-					</table>
+								<td><s:property value="idAbonnement" /></td>
+								<td><s:property value="dateAbonnement" /></td>
+								<td><s:property value="solde" /></td>
+								<td><s:property value="class.simpleName" /></td>
+								<td><s:property value="actif" /></td>
+								<td><s:property value="debit" /></td>
+								<td><s:property value="fidelio" /></td>
+								<s:url namespace="/" action="update" var="lien1">
+									<s:param name="refUpdate">
+										<s:property value="idAbonnement" />
+									</s:param>
+								</s:url>
+								<s:url namespace="/" action="delete" var="lien2">
+									<s:param name="refDelete">
+										<s:property value="idAbonnement" />
+									</s:param>
+								</s:url>
+								<td><s:a href="%{lien1}">Update</s:a></td>
+								<td><s:a href="%{lien2}" style="color:red">Delete</s:a></td>
+								<%-- <td><button type="submit" value="update"
+										class="btn btn-primary btn-sm">Update</button></td>
+								<td><s:submit value="delete"></s:submit></td> --%>
 
-				</div>
+							</tr>
+						</s:iterator>
+					</tbody>
+				</table>
+
 			</div>
-
 		</div>
 	</div>
 </body>
