@@ -64,9 +64,13 @@ body {
 		<div class="row">
 			<div class="col-md-7">
 				<div class="well">
-					<s:form action="save" enctype="multipart/form-data"
-						theme="bootstrap" cssClass="form-horizontal" label="Abonnement"
-						method="post" labelposition="">
+					<s:form action="save" 
+						    enctype="multipart/form-data"
+							theme="bootstrap" 
+							cssClass="form-horizontal" 
+							label="Abonnement"
+							method="post" 
+							labelposition="">
 						<s:div>
 							<s:textfield label="ID Abonnement" name="idAbonnement"
 								elementCssClass="col-sm-7" />
@@ -92,7 +96,7 @@ body {
 
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-md-9">
-									<s:submit cssClass="btn" value="save" />
+									<sj:submit cssClass="btn" value="save" />
 								</div>
 							</div>
 						</s:div>

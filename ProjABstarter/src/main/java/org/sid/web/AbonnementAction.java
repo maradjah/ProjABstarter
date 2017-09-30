@@ -14,6 +14,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 @Component
 public class AbonnementAction extends ActionSupport {
+
+
+	private static final long serialVersionUID = 1L;
+
 	@Autowired
 	private IAbonnementMetier metier;
 
@@ -38,6 +42,19 @@ public class AbonnementAction extends ActionSupport {
 	public String getTypeAb() {
 		return SUCCESS;
 	}
+	
+	
+//	if (dateAbonnement == null) {
+//		addFieldError("dateAbonnement", "Date is required");
+//	} else if (solde == 0.0) {
+//		addFieldError("solde", "Solde myst be positive");
+//	} else if (typeRadio == "") {
+//		addFieldError("typeRadio", "GSM or INTERNET ?");
+//	} else if (typeRadio == "GSM" && fidelio == 0) {
+//		addFieldError("fidelio", "Fidelo Required");
+//	} else if (typeRadio == "INTENRNET" && debit == 0) {
+//		addFieldError("debit", "Débit Required");
+//	} else
 
 	public String save() {
 		/* mode Update */
